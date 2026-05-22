@@ -1,0 +1,21 @@
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(
+            to right,
+            oklch(0.95 0.02 250) 1px,
+            transparent 1px
+        ),
+        linear-gradient(to bottom, oklch(0.95 0.02 250) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center;
+}
+
+.square {
+    height: 64px;
+    width: 64px;
+    background-color: oklch(0.69 0.18 245.62);
+    border-right: solid 8px black;
+    border-radius: 0.25rem;
+}
