@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CSS/Animations/Animation-timeline.css">
+</head>
+<body>
+ 
+    <div class="progress"></div>
+ 
+    <article>
+        <h1>The Art of Motion</h1>
+        <p>
+            Animation on the web has come a long way. What once required heavy JavaScript
+            libraries can now be achieved with a few lines of CSS — smooth, performant,
+            and tied directly to the browser's rendering engine.
+        </p>
+ 
+        <h2>Scroll-driven animations</h2>
+        <p>
+            The <code>animation-timeline: scroll</code> property lets you bind any CSS
+            animation to a scroll position instead of time. As the user scrolls down,
+            the animation progresses — no JavaScript event listeners needed.
+        </p>
+ 
+        <h2>Why it matters</h2>
+        <p>
+            Traditional scroll animations fired JS callbacks on every scroll event,
+            causing layout thrashing and janky framerates. Native scroll timelines run
+            off the main thread, meaning silky 60fps even on low-end devices.
+        </p>
+ 
+        <h2>The progress bar trick</h2>
+        <p>
+            That pink bar at the top of this page is a fixed element scaled from
+            <code>0</code> to <code>1</code> on the X axis, driven entirely by how far
+            you've scrolled. No scroll listeners. No <code>requestAnimationFrame</code>.
+            Just CSS.
+        </p>
+ 
+        <h2>What comes next</h2>
+        <p>
+            Beyond <code>scroll()</code>, the spec also defines <code>view()</code> —
+            a timeline that activates when an element enters or leaves the viewport.
+            Think reveal animations, sticky counters, and parallax effects, all in CSS.
+        </p>
+    </article>
+ 
+    <div class="scroll-container">
+        <div class="inner">
+            <div class="square"></div>
+        </div>
+    </div>
+ 
+</body>
+</html>

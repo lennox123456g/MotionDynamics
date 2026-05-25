@@ -1,0 +1,30 @@
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: 10s;
+
+}
+
+::view-transition-old(root){
+    animation-name: slideDown 1s ;
+
+}
+
+::view-transition-new(root){
+    animation-name: dropFromAbove 1s ;
+
+}
+
+@keyframes slideDown {
+    to {
+        transform: translate(100vh);
+    }
+}
+
+@keyframes dropFromAbove {
+    from {
+        transform: translateY(-100vh);
+    }
+}

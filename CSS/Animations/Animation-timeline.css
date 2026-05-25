@@ -1,0 +1,58 @@
+article{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scroll-container {
+    padding: 2rem;
+    height: 400px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    background: #e7e7e7;
+}
+
+.inner{
+    margin: 200px 0;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background: hotpink;
+
+    animation: spin 2s;
+    animation-timeline: scroll;
+}
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 8px;
+    background: hotpink;
+    transform-origin: left;
+
+    animation: progress linear;
+    animation-timeline: scroll(root block); /* 👈 this is the fix */
+}
+
+@keyframes progress {
+    from {
+        transform: scaleX(0);  /* fix 1: scaleX not scale */
+    }
+    to {
+        transform: scaleX(1);  /* fix 2: added missing to keyframe */
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(0.25turn);
+    }
+}

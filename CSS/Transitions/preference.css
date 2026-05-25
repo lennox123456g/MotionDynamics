@@ -1,0 +1,13 @@
+.animation {
+  animation: pulse 1s linear infinite both;
+  background-color: purple;
+} /*Default 
+
+/* Tone down the animation to avoid vestibular motion triggers. */
+@media (prefers-reduced-motion: reduce) {
+  .animation {
+    animation: dissolve 4s linear infinite both;
+    background-color: green;
+    text-decoration: overline;
+  } /*optional */
+}
