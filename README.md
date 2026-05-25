@@ -1,77 +1,116 @@
-Web Animations Guide
-What is Motion?
+# Web Animations Guide
+
+## What is Motion?
+
 Motion is an object's change in state over time — a change in speed and pace — not just teleporting to an end position. It creates continuity, bridging something from one state at the start to another at the end.
-Depth and Hierarchy
+
+## Depth and Hierarchy
+
 Pages need depth and hierarchy in their elevation without being in your face. Box shadows bring this subtlety. Animations should follow the same principle: they should never be demanding attention, but rather be subtle and barely noticeable. Because they truly move, they create a subtle experience that makes the application come to life, feel real and polished.
 
-Motion Sickness & User Control
+---
+
+## Motion Sickness & User Control
+
 When there is a lot of motion, motion sickness can be triggered. The same animation should not have so much motion, and users should always be able to control it.
-Resources:
 
-MDN Docs: @prefers-reduced-motion
-web.dev: Prefers Reduced Motion
+**Resources:**
+- [web.dev](https://web.dev/)
+- MDN Docs: [`@prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion)
+- [web.dev: Prefers Reduced Motion](https://web.dev/articles/prefers-reduced-motion)
 
-You can use a <link> tag to conditionally load a CSS stylesheet at the CSS level, so that users who prefer reduced motion get a different experience. Do not force animations on users.
+You can use a `<link>` tag to conditionally load a CSS stylesheet at the CSS level, so that users who prefer reduced motion get a different experience. **Do not force animations on users.**
 
-Animation Performance
+---
+
+## Animation Performance
+
 Think carefully about which CSS properties you are animating and how they affect the overall layout.
-transform is one of the safest animations because it does not affect any other element's layout.
-CPU vs GPU
 
-transform and opacity use the GPU, making them smooth because they require no layout recalculation from the CPU. Stick to these most of the time.
-transition-property is used for performance reasons and special effects — for example, if you want to transition rotation but leave the background color unchanged. What you leave out remains abrupt.
+**`transform` is one of the safest animations** because it does not affect any other element's layout.
 
+**CPU vs GPU**
 
-Timing Functions
+- **`transform` and `opacity`** use the GPU, making them smooth because they require no layout recalculation from the CPU. Stick to these most of the time.
+- `transition-property` is used for performance reasons and special effects — for example, if you want to transition rotation but leave the background color unchanged. What you leave out remains abrupt.
 
-Ease-in: accelerates into the final state
-cubic-bezier.com — a great tool for crafting custom easing curves
+---
 
+## Timing Functions
 
-Transitions vs Keyframe Animations
+- **Ease-in:** accelerates into the final state
+- [cubic-bezier.com](https://cubic-bezier.com/#.17,.67,.83,.67) — a great tool for crafting custom easing curves
 
-CSS Transitions only move from point A to point B.
-CSS Keyframe Animations give you full control over what happens between the start and end states.
+---
 
-Further reading: Josh W. Comeau — CSS — covers animation-fill-mode and much more.
+## Transitions vs Keyframe Animations
 
-Advanced Animation Techniques
-Offset Path
+- **CSS Transitions** only move from point A to point B.
+- **CSS Keyframe Animations** give you full control over what happens between the start and end states.
+
+**Further reading:** [Josh W. Comeau — CSS](https://www.joshwcomeau.com/css/) — covers `animation-fill-mode` and much more.
+
+---
+
+## Advanced Animation Techniques
+
+**Offset Path**
+
 Animates an element along a given path.
 
-CSS Clip Path Generator
+- [CSS Clip Path Generator](https://www.cssportal.com/css-clip-path-generator/)
 
-Animate Elements in View
+**Animate Elements in View**
+
 Triggering animations when elements enter the viewport creates a compelling, dynamic experience.
-Scroll-Driven Animations
 
-scroll-driven-animations.style — includes range-based animation control
+**Scroll-Driven Animations**
 
-View Transitions
-View Transitions are excellent for page transitions. Dynamic View Transition Names are important for items coming from the database — use view-transition-name for this.
+- [scroll-driven-animations.style](https://scroll-driven-animations.style/) — includes range-based animation control
 
-JavaScript & the Browser Event Loop
+**View Transitions**
 
-Use requestAnimationFrame over setInterval — it is far more performant, saves battery, and syncs with the browser's rendering pipeline.
-Talk by Jake Archibald covering the complexity of the web browser event loop: YouTube
+View Transitions are excellent for page transitions. **Dynamic View Transition Names** are important for items coming from the database — use `view-transition-name` for this.
 
-Application Playback and Playheads
+---
+
+## JavaScript & the Browser Event Loop
+
+- **Use `requestAnimationFrame`** over `setInterval` — it is far more performant, saves battery, and syncs with the browser's rendering pipeline.
+- Talk by Jake Archibald covering the complexity of the web browser event loop: [YouTube](https://youtu.be/cCOL7MC4Pl0?si=582bkFeoEbi3jhSk)
+
+**Application Playback and Playheads**
+
 For timeline-based animations, think in terms of playback controls and playheads to manage animation state.
 
-JavaScript Animation Libraries
+---
+
+## JavaScript Animation Libraries
+
 Libraries offer better animation capabilities, but they do send more code to the browser, which affects performance.
-The Web Animations API (WAAPI) has the advantage of working on the compositor thread, offloading work from the main JavaScript execution thread, making animations extremely smooth.
-Recommended Libraries
-LibraryNotesMotion.devMost loved library. Uses the WAAPI under the hood, so even JavaScript-driven animations are smooth.Anime.jsHas one of the best documentation experiences in the world.GSAPThe industry powerhouse. Has been the de facto choice for animation professionals for a long time. A full graphics and motion design library — a professional tool for professional animators.
 
-Showcase & Inspiration
+**The Web Animations API (WAAPI)** has the advantage of working on the compositor thread, offloading work from the main JavaScript execution thread, making animations extremely smooth.
 
-Awwwards — showcases world-class JavaScript animation websites
+**Recommended Libraries**
 
+| Library | Notes |
+|---|---|
+| [Motion.dev](https://motion.dev) | Most loved library. Uses the WAAPI under the hood, so even JavaScript-driven animations are smooth. |
+| [Anime.js](https://animejs.com) | Has one of the best documentation experiences in the world. |
+| [GSAP](https://gsap.com) | The industry powerhouse. Has been the de facto choice for animation professionals for a long time. A full graphics and motion design library — a professional tool for professional animators. |
 
-Next Steps: Canvas & WebGL
+---
+
+## Showcase & Inspiration
+
+- [Awwwards](https://www.awwwards.com/) — showcases world-class JavaScript animation websites
+
+---
+
+## Next Steps: Canvas & WebGL
+
 If the DOM is not enough for you, dive into the Canvas element and the world of WebGL for 2D and 3D experiences.
 
-PixiJS — 2D rendering
-Three.js — 3D rendering
-Example: Kubota Future Cube
+- [PixiJS](https://pixijs.com/) — 2D rendering
+- [Three.js](https://threejs.org/) — 3D rendering
+- Example: [Kubota Future Cube](https://www.kubota.com/futurecube/)
